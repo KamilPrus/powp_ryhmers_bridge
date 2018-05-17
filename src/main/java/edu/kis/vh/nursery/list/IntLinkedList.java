@@ -1,14 +1,12 @@
 package edu.kis.vh.nursery.list;
 
+import edu.kis.vh.nursery.Stack;
+
 /**
  * This class provides interface for linked list which contains only integers
  */
-public class IntLinkedList {
+public class IntLinkedList implements Stack {
 
-	/**
-	 * This constant is used to check if list is empty
-	 */
-	public static final int EMPTY_LIST = -1;
 	/**
 	 * Single element on the list
 	 */
@@ -33,6 +31,7 @@ public class IntLinkedList {
 	 * This method checks if list is empty
 	 * @return boolean This returns if list is empty
 	 */
+	@Override
 	public boolean isEmpty() {
 		return last == null;
 	}
@@ -41,6 +40,7 @@ public class IntLinkedList {
 	 * This method checks if list is full
 	 * @return boolean This returns if list is full
 	 */
+	@Override
 	public boolean isFull() {
 		return false;
 	}
@@ -49,9 +49,10 @@ public class IntLinkedList {
 	 * This method returns last value from list
 	 * @return int This returns last value from list or EMPTY_LIST if list is empty
 	 */
+	@Override
 	public int top() {
 		if (isEmpty()) {
-			return EMPTY_LIST;
+			return EMPTY_STACK;
 		}
 		return last.value;
 	}
@@ -60,9 +61,10 @@ public class IntLinkedList {
 	 * This method removes and returns last value from the list
 	 * @return int Last value from the list
 	 */
+	@Override
 	public int pop() {
 		if (isEmpty()) {
-			return EMPTY_LIST;
+			return EMPTY_STACK;
 		}
 		int ret = last.value;
 		last = last.prev;
